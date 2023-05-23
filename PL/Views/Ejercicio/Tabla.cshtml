@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Tabla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EjercicioJS</title>
+    <script src="jquery-1.12.2.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid blue;
+            border-collapse: collapse;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightgrey;
+            width: 25%;
+        }
+
+        button {
+            padding: 3px 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Tabla</h3>
+    <div class="row">
+        <table>
+            <thead>
+                <tr id="title">
+                    <th>Columna 1</th>
+                    <th>Columna 2</th>
+                    <th>Columna 3</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <button  id="Btn" onclick="minusculas(this)">A</button>
+                </td>
+                <td>
+                    <button id="Btn2">B</button>
+                </td>
+                <td>
+                    <button id="Btn3" style="background-color: royalblue">C</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("th").mouseover(function () {
+                $("th").css("background-color", "red");
+            });
+            $("th").mouseleave(function () {
+                $("th").css("background-color", "lightgray");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Btn2").click(function () {
+                $("#Btn2").css("background-color", "red");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Btn3").mouseover(function () {
+                $("#Btn3").css("background-color", "red");
+            });
+            $("#Btn3").mouseleave(function () {
+                $("#Btn3").css("background-color", "royalblue");
+            });
+            $("#Btn3").mouseover(function () {
+                $(this).animate({ fontSize: "+=6px" });
+            });
+            $("#Btn3").mouseleave(function () {
+                $(this).animate({ fontSize: "-=6px" });
+            });
+        });
+
+
+        function minusculas() {
+            var uno = document.getElementById('Btn');
+            if (uno.innerHTML == 'A') uno.innerHTML = 'a';
+            else uno.innerHTML = 'A';
+            };
+    </script>
+</body>
+</html>
